@@ -1,30 +1,77 @@
-/**
- * Below are the colors that are used in the app. The colors are defined in the light and dark mode.
- * There are many other ways to style your app. For example, [Nativewind](https://www.nativewind.dev/), [Tamagui](https://tamagui.dev/), [unistyles](https://reactnativeunistyles.vercel.app), etc.
- */
-
 import { Platform } from 'react-native';
 
-const tintColorLight = '#0a7ea4';
-const tintColorDark = '#fff';
+export const OUColors = {
+  crimson: '#841617', // Oklahoma Crimson
+  darkCrimson: '#4e0002', // Dark Crimson
+  black: '#000000',
+  darkGray: '#323232',
+  lightGray: '#f0f0f0',
+  white: '#ffffff',
+  cream: '#f2e8d0',
+  // Accents
+  sky: '#bcdceb',
+  leaf: '#8ca57d',
+  stone: '#beb4a5',
+} as const;
+
+// Semantic light/dark color sets built from OU palette. Choose Crimson as primary in light theme.
+const tintColorLight = OUColors.crimson;
+const tintColorDark = OUColors.crimson;
 
 export const Colors = {
   light: {
-    text: '#11181C',
-    background: '#fff',
+    // Backgrounds and surfaces
+    background: OUColors.white,
+    surface: OUColors.lightGray,
+
+    // Primary / brand
+    primary: OUColors.crimson,
+    primaryDark: OUColors.darkCrimson,
+
+    // Text
+    text: OUColors.black,
+    textOnPrimary: OUColors.white,
+
+    // Accents (use sparingly)
+    accentSky: OUColors.sky,
+    accentLeaf: OUColors.leaf,
+    accentStone: OUColors.stone,
+
+    // Utilities
+    border: OUColors.stone,
     tint: tintColorLight,
-    icon: '#687076',
-    tabIconDefault: '#687076',
+    icon: OUColors.darkGray,
+    tabIconDefault: OUColors.darkGray,
     tabIconSelected: tintColorLight,
   },
   dark: {
-    text: '#ECEDEE',
-    background: '#151718',
+    // For dark mode, make Dark Gray the dominant neutral with Crimson as accent
+    background: OUColors.darkGray,
+    surface: '#202020',
+
+    primary: OUColors.crimson,
+    primaryDark: OUColors.darkCrimson,
+
+    text: OUColors.white,
+    textOnPrimary: OUColors.white,
+
+    accentSky: OUColors.sky,
+    accentLeaf: OUColors.leaf,
+    accentStone: OUColors.stone,
+
+    border: '#2b2b2b',
     tint: tintColorDark,
-    icon: '#9BA1A6',
+    icon: '#ECEDEE',
     tabIconDefault: '#9BA1A6',
     tabIconSelected: tintColorDark,
   },
+} as const;
+
+//Logos
+export const Logos = {
+  CenteredWordmarkOU: require('../assets/OU-logos/CenteredWordmarkOU.png'),
+  InterlockingOU: require('../assets/OU-logos/InterlockingOU.png'),
+  LinearWordmarkOU: require('../assets/OU-logos/LinearWordmarkOU.png'),
 };
 
 export const Fonts = Platform.select({
